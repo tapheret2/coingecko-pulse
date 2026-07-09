@@ -52,3 +52,8 @@ class CoinGecko:
         )
         r.raise_for_status()
         return r.json()
+
+
+def normalize_symbol(symbol: str) -> str:
+    """Normalize user coin symbols (e.g. btc -> bitcoin is NOT done; just case)."""
+    return (symbol or "").strip().lower()

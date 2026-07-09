@@ -57,3 +57,10 @@ class CoinGecko:
 def normalize_symbol(symbol: str) -> str:
     """Normalize user coin symbols (e.g. btc -> bitcoin is NOT done; just case)."""
     return (symbol or "").strip().lower()
+
+
+def format_usd(value: float | None, digits: int = 2) -> str:
+    """Format a USD price for CLI display."""
+    if value is None:
+        return "n/a"
+    return f"${value:,.{digits}f}"

@@ -1,5 +1,7 @@
 # coingecko-pulse
 
+![status](https://img.shields.io/badge/status-active-brightgreen) ![python](https://img.shields.io/badge/python-3.10%2B-blue) ![license](https://img.shields.io/badge/license-MIT-lightgrey)
+
 Tiny **zero-API-key** crypto pulse CLI using [CoinGecko](https://www.coingecko.com/) public endpoints.
 
 ```bash

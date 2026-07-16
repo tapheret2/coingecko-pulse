@@ -64,3 +64,11 @@ def format_usd(value: float | None, digits: int = 2) -> str:
     if value is None:
         return "n/a"
     return f"${value:,.{digits}f}"
+
+
+def format_price_line(symbol: str, price: float | None, currency: str = "usd") -> str:
+    """Compact single-line price display."""
+    sym = (symbol or "").strip().upper() or "?"
+    if price is None:
+        return f"{sym}: n/a"
+    return f"{sym}: {price:,.6g} {currency.lower()}"

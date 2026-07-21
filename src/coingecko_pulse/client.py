@@ -72,3 +72,15 @@ def format_price_line(symbol: str, price: float | None, currency: str = "usd") -
     if price is None:
         return f"{sym}: n/a"
     return f"{sym}: {price:,.6g} {currency.lower()}"
+
+
+def format_pct(value: float | None, digits: int = 2) -> str:
+    """Format a percent change with sign; n/a if missing."""
+    if value is None:
+        return "n/a"
+    return f"{float(value):+.{digits}f}%"
+
+
+def pick_fields(row: dict[str, Any], keys: list[str]) -> dict[str, Any]:
+    """Project a market row onto selected keys (missing -> None)."""
+    return {k: row.get(k) for k in keys}

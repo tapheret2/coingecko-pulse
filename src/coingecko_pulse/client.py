@@ -84,3 +84,15 @@ def format_pct(value: float | None, digits: int = 2) -> str:
 def pick_fields(row: dict[str, Any], keys: list[str]) -> dict[str, Any]:
     """Project a market row onto selected keys (missing -> None)."""
     return {k: row.get(k) for k in keys}
+
+def format_mcap(value: float) -> str:
+    """Human compact market-cap string (B/M/K)."""
+    v = float(value)
+    abs_v = abs(v)
+    if abs_v >= 1e9:
+        return f"{v/1e9:.2f}B"
+    if abs_v >= 1e6:
+        return f"{v/1e6:.2f}M"
+    if abs_v >= 1e3:
+        return f"{v/1e3:.2f}K"
+    return f"{v:.2f}"

@@ -60,3 +60,12 @@ def snapshot(out: Path = typer.Option(Path("pulse.json"), "-o")) -> None:
 
 if __name__ == "__main__":
     app()
+
+
+def format_price(value: float, digits: int = 2) -> str:
+    return f"${value:,.{digits}f}"
+
+
+def format_pct(change: float, digits: int = 2) -> str:
+    sign = "+" if change > 0 else ""
+    return f"{sign}{change:.{digits}f}%"
